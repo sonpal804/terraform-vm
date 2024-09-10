@@ -23,17 +23,17 @@ jobs:
 
    - name: Replace placeholders with secrets provider
      run: |
-       sed -i 's/clientid/${{ secrets.AZURE_CLIENT_ID }}/g' provider.tf
-       sed -i 's/clientsecret/${{ secrets.AZURE_CLIENT_SECRET }}/g' provider.tf
-       sed -i 's/tenantid/${{ secrets.AZURE_TENANT_ID }}/g' provider.tf
-       sed -i 's/subscriptionid/${{ secrets.AZURE_SUBSCRIPTION_ID }}/g' provider.tf
+       sed -i 's/clientid/${{ secrets.AZURE_CLIENT_ID }}/g' ./modules/vm/provider.tf
+       sed -i 's/clientsecret/${{ secrets.AZURE_CLIENT_SECRET }}/g' ./modules/vm/provider.tf
+       sed -i 's/tenantid/${{ secrets.AZURE_TENANT_ID }}/g' ./modules/vm/provider.tf
+       sed -i 's/subscriptionid/${{ secrets.AZURE_SUBSCRIPTION_ID }}/g' ./modules/vm/provider.tf
   
    - name: Replace placeholders with secrets backend
      run: |
-       sed -i 's/clientid/${{ secrets.AZURE_CLIENT_ID }}/g' backend.tf
-       sed -i 's/clientsecret/${{ secrets.AZURE_CLIENT_SECRET }}/g' backend.tf
-       sed -i 's/tenantid/${{ secrets.AZURE_TENANT_ID }}/g' backend.tf
-       sed -i 's/subscriptionid/${{ secrets.AZURE_SUBSCRIPTION_ID }}/g' backend.tf
+       sed -i 's/clientid/${{ secrets.AZURE_CLIENT_ID }}/g' ./modules/vm/backend.tf
+       sed -i 's/clientsecret/${{ secrets.AZURE_CLIENT_SECRET }}/g' ./modules/vm/backend.tf
+       sed -i 's/tenantid/${{ secrets.AZURE_TENANT_ID }}/g' ./modules/vm/backend.tf
+       sed -i 's/subscriptionid/${{ secrets.AZURE_SUBSCRIPTION_ID }}/g' ./modules/vm/backend.tf
 
    - name: Terraform Init
      run: terraform init -reconfigure
